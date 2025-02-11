@@ -1,5 +1,6 @@
 package com.pattalk.protocol.payload;
 
+import com.pattalk.protocol.constant.HttpStatus;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,7 +27,12 @@ public class ApiResult<T> {
         this.data = data;
     }
 
-    private static <T> ApiResult<T> succeed(String code, String message, T data) {
+    public static <T> ApiResult<T> succeed(T data) {
+        return succeed(HttpStatus.OK.getStatus(),HttpStatus.OK.getMessage(), data);
+    }
+
+
+    public static <T> ApiResult<T> succeed(String code, String message, T data) {
         return ApiResult.<T>builder()
                 .code(code)
                 .message(message)

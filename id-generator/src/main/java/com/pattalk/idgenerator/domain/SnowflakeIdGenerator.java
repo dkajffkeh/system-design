@@ -62,10 +62,6 @@ public class SnowflakeIdGenerator {
         return timestamp;
     }
 
-    public static void main(String[] args) {
-        System.out.println((4096) & ((1L << 12) - 1));
-    }
-
     public IdGeneratorResponse parser() {
         final Long id = this.nextId();
 
