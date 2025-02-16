@@ -8,3 +8,5 @@ pluginManagement {
 rootProject.name = "pat-talk"
 include("id-generator")
 include("protocol")
+include("chatting-server")
+include("connection-reporter")

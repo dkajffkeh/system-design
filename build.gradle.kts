@@ -75,6 +75,25 @@ project(":id-generator") {
     }
 }
 
+project(":chatting-server") {
+    dependencies {
+        implementation("org.springframework.boot:spring-boot-starter")
+        compileOnly("org.projectlombok:lombok")
+        annotationProcessor("org.projectlombok:lombok")
+        testImplementation("org.springframework.boot:spring-boot-starter-test")
+        testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    }
+}
+
+project(":connection-reporter") {
+    dependencies {
+        implementation("org.springframework.boot:spring-boot-starter-data-redis-reactive")
+        testImplementation("org.springframework.boot:spring-boot-starter-test")
+        testImplementation("io.projectreactor:reactor-test")
+        testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    }
+}
+
 project(":protocol") {
     dependencies {
     }
