@@ -94,6 +94,18 @@ project(":connection-reporter") {
     }
 }
 
+project(":api-dog") {
+    dependencies {
+        implementation("org.springframework.boot:spring-boot-starter-web")
+        testImplementation("org.springframework.boot:spring-boot-starter-test")
+        testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+        implementation ("org.springframework.boot:spring-boot-starter-validation")
+
+        // ✅ Swagger / SpringDoc OpenAPI 3 의존성 추가
+        implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0")
+    }
+}
+
 project(":protocol") {
     dependencies {
     }
