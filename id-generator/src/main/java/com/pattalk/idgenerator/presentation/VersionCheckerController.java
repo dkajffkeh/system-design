@@ -11,6 +11,6 @@ public class VersionCheckerController {
 
     @GetMapping("/versions")
     public Mono<String> versionChecker() {
-        return Mono.just("1.0.0");
+        return Mono.just("1.0.1");
     }
 }
