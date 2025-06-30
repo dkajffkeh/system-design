@@ -9,7 +9,7 @@ import reactor.core.publisher.Mono;
 @RestController
 public class VersionCheckerController {
 
-    @GetMapping
+    @GetMapping("/versions")
     public Mono<String> versionChecker() {
         return Mono.just("1.0.0");
     }
