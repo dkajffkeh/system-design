@@ -7,9 +7,9 @@ env:
   IMAGE_NAME: id-generator
   ECR_REGISTRY: ${{ secrets.ECR_REPOSITORY }}
   AWS_REGION: ${{ secrets.AWS_REGION }}
-#  ECS_SERVICE: id-generator-service-ydzycuz3
-#  ECS_CLUSTER: id-generator
-#  ECS_TASK_DEFINITION: ./task-definition/id-generator/id-generator-dev.json
+  ECS_SERVICE: id-generator-service
+  ECS_CLUSTER: id-generator
+  ECS_TASK_DEFINITION: ./task-definition/id-generator/id-generator-dev.json
   CONTAINER_NAME: id-generator
 
 jobs:
@@ -52,21 +52,21 @@ jobs:
         run: |
           docker push $ECR_REGISTRY:latest
 
-#      - name: Fill in the new image ID in the Amazon ECS task definition
-#        id: task-def
-#        uses: aws-actions/amazon-ecs-render-task-definition@c804dfbdd57f713b6c079302a4c01db7017a36fc
-#        with:
-#          task-definition: ${{ env.ECS_TASK_DEFINITION }}
-#          container-name: ${{ env.CONTAINER_NAME }}
-#          image: ${{ env.ECR_REGISTRY }}:latest
-#
-#      - name: Deploy Amazon ECS task definition
-#        uses: aws-actions/amazon-ecs-deploy-task-definition@v2
-#        with:
-#          task-definition: ${{ steps.task-def.outputs.task-definition }}
-#          service: ${{ env.ECS_SERVICE }}
-#          cluster: ${{ env.ECS_CLUSTER }}
-#          wait-for-service-stability: true
+      - name: Fill in the new image ID in the Amazon ECS task definition
+        id: task-def
+        uses: aws-actions/amazon-ecs-render-task-definition@c804dfbdd57f713b6c079302a4c01db7017a36fc
+        with:
+          task-definition: ${{ env.ECS_TASK_DEFINITION }}
+          container-name: ${{ env.CONTAINER_NAME }}
+          image: ${{ env.ECR_REGISTRY }}:latest
+
+      - name: Deploy Amazon ECS task definition
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v2
+        with:
+          task-definition: ${{ steps.task-def.outputs.task-definition }}
+          service: ${{ env.ECS_SERVICE }}
+          cluster: ${{ env.ECS_CLUSTER }}
+          wait-for-service-stability: true
           
       
         
