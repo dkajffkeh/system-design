@@ -1,8 +1,9 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:359380494652:task-definition/id-generator:1",
+    "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:359380494652:task-definition/id-generator:5",
     "containerDefinitions": [
         {
             "name": "id-generator",
+            "image": "359380494652.dkr.ecr.ap-northeast-2.amazonaws.com/id-generator",
             "cpu": 0,
             "portMappings": [
                 {
@@ -35,7 +36,7 @@
     "family": "id-generator",
     "executionRoleArn": "arn:aws:iam::359380494652:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 1,
+    "revision": 5,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -66,16 +67,17 @@
     ],
     "placementConstraints": [],
     "compatibilities": [
-        "EC2"
+        "EC2",
+        "FARGATE"
     ],
     "requiresCompatibilities": [],
-    "cpu": "1024",
+    "cpu": "512",
     "memory": "1024",
     "runtimePlatform": {
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2025-07-11T16:14:24.961Z",
+    "registeredAt": "2025-07-13T08:56:29.300Z",
     "registeredBy": "arn:aws:iam::359380494652:root",
     "enableFaultInjection": false,
     "tags": []
