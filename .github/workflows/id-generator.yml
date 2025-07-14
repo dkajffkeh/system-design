@@ -7,7 +7,7 @@ env:
   IMAGE_NAME: id-generator
   ECR_REGISTRY: ${{ secrets.ECR_REPOSITORY }}
   AWS_REGION: ${{ secrets.AWS_REGION }}
-  ECS_SERVICE: id-generator-service
+  ECS_SERVICE: id-generator-service-mdwr09u6
   ECS_CLUSTER: id-generator-cluster
   ECS_TASK_DEFINITION: ./task-definition/id-generator/id-generator-dev.json
   CONTAINER_NAME: id-generator
