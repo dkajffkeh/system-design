@@ -10,7 +10,7 @@ public class HealthChecker {
 
     @GetMapping
     public String healthCheck() {
-        return "pong!";
+        return "1.0.0";
     }
 
 }
