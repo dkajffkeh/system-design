@@ -10,7 +10,7 @@ public class HealthChecker {
 
     @GetMapping
     public String healthCheck() {
-        return "1.0.3";
+        return "1.0.4";
     }
 
 }
